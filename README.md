@@ -3,6 +3,8 @@
 Songinator is a browser-only song generator and player. Open the standalone `index.html` file
 directly in a browser.
 
+Try it at: https://coeurnix.github.io/songinator/
+
 It generates a new song on load in a random key, with tempo chosen from the key mode:
 minor keys use 80-100 BPM, major keys use 90-130 BPM.
 
