@@ -15,7 +15,6 @@ Playback uses smplr from the public CDN:
 Rebuild the standalone file after changing source files:
 
 ```powershell
-cd docs
 node build-standalone.mjs
 ```
 
