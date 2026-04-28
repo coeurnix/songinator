@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Songinator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="harmony-bg" aria-hidden="true"></canvas>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">algorithmic song generator</p>
+          <h1>Songinator</h1>
+        </div>
+        <div class="status" id="status">Idle</div>
+      </header>
+
+      <section class="transport" aria-label="Transport">
+        <label>
+          Key
+          <select id="key-select">
+            <option>C major</option>
+            <option>G major</option>
+            <option>D major</option>
+            <option>A major</option>
+            <option>E major</option>
+            <option>F major</option>
+            <option>Bb major</option>
+            <option>Eb major</option>
+            <option>A minor</option>
+            <option>E minor</option>
+            <option>B minor</option>
+            <option>F# minor</option>
+            <option>D minor</option>
+            <option>G minor</option>
+            <option>C minor</option>
+          </select>
+        </label>
+        <label>
+          Form
+          <select id="form-select">
+            <option value="expanded_pop">expanded_pop</option>
+            <option value="simple_pop">simple_pop</option>
+            <option value="classical_simple_song">classical_simple_song</option>
+          </select>
+        </label>
+        <label>
+          Seed
+          <input id="seed" type="number" step="1" placeholder="Random" />
+        </label>
+        <button id="generate" type="button">Generate</button>
+        <label class="file-control">
+          JSON
+          <input id="file-input" type="file" accept="application/json,.json" />
+        </label>
+        <button id="play" type="button">Play</button>
+        <button id="stop" type="button">Stop</button>
+        <label>
+          BPM
+          <input id="bpm" type="number" min="30" max="220" step="1" />
+        </label>
+        <label>
+          Volume
+          <input id="volume" type="range" min="0" max="127" value="92" />
+        </label>
+        <label>
+          Reverb
+          <input id="reverb" type="range" min="0" max="1" value="0.16" step="0.01" />
+        </label>
+        <label>
+          Arp
+          <input id="arp-volume" type="range" min="0" max="127" value="96" />
+        </label>
+        <label>
+          Drums
+          <input id="drum-volume" type="range" min="0" max="127" value="118" />
+        </label>
+      </section>
+
+      <section class="timeline" aria-label="Timeline">
+        <div class="readout">
+          <span id="song-title">No song loaded</span>
+          <span id="clock">0:00 / 0:00</span>
+        </div>
+        <input id="seek" type="range" min="0" max="0" value="0" step="0.01" />
+        <div id="sections" class="sections"></div>
+      </section>
+
+      <section class="now-playing" aria-label="Current harmony">
+        <div>
+          <span class="label">Section</span>
+          <strong id="current-section">-</strong>
+        </div>
+        <div>
+          <span class="label">Roman</span>
+          <strong id="current-roman">-</strong>
+        </div>
+        <div>
+          <span class="label">Chord</span>
+          <strong id="current-chord">-</strong>
+        </div>
+        <div>
+          <span class="label">Notes</span>
+          <strong id="current-notes">-</strong>
+        </div>
+      </section>
+
+      <section class="progression" aria-label="Progression">
+        <div class="section-heading">
+          <h2>Progression</h2>
+          <span id="summary"></span>
+        </div>
+        <div id="chord-grid" class="chord-grid"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
